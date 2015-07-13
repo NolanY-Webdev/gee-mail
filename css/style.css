@@ -115,7 +115,7 @@ thead tr{
 	color: white;
 }
 
-/*color change*/
-.emailrow:hover{
+/*Email select color change*/
+.row:hover{
 	background-color: rgb(0, 150, 150);
 }

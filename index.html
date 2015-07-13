@@ -1,18 +1,53 @@
 <html>
 	<head>
+		<title> Welcome to GeEmail </title>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-
-        var user = prompt("User login required", "Username")
+		var user = prompt("User login required", "Username");
         title.innerHTML = "Welcome to " + user + "'s GeEmail!"
+        var table = document.getElementById("tableBody");
+
+        function showMessageInWindow(selected) {
+        	var emailWindow = window.open("", "_blank", "width = 600, height = 600");
+        	var selectedGeemail = window.geemails[selected];
+        	emailWindow.document.write("<p> Sender: " + selectedGeemail.sender + "<br/>" + "Subject: " +//
+        		selectedGeemail.subject + "<br/>" + "Date: " + selectedGeemail.date//
+        		+ "<br/>" + "<br/>" + "<br/>"+ currentMessageObject.body + "</p>");
+        }
+
+        function inbox(geemails) {
+        	var geemailContent = document.getElementById("tableBody");
+
+        	var row = document.createElement("tr");
+        	row.className = ("row")
+        	geemailContent.appendChild(row);
+
+        	var sender = document.createElement("td");
+        	sender.className = ("sender");
+        	sender.innerHTML = geemails.sender.bold();
+        	row.appendChild(sender);
+
+        	var subject = document.createElement("td");
+        	subject.className = ("subject");
+        	subject.innerHTML = geemails.subject.bold() + ": ".bold() + geemails.body.substring(0, 50) + "...";
+        	row.appendChild(subject);
+
+        	var date = document.createElement("td");
+        	date.className = ("date");
+        	date.innerHTML = geemails.date;
+        	row.appendChild(date);
+        }
 
 
-      };
+        for(var i = 0; i < window.geemails.length; i++) {
+        	inbox(window.geemails[i]);
+        };
 
+    	};
 
     </script>
 	</head>
