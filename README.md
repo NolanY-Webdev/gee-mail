@@ -1,5 +1,7 @@
 # GeeMail 
 
+//Copying my assingment to get into devleague? I'd much rather help you learn it, contact me at skinnyfatman@gmail.com and if I remember to check my email at some point I'll get back to you (if it doesn't get spam filtered :( ).
+
 GeeMail is a coding exercise meant to simulate an e-mail web application inbox.
 
 ## Description
